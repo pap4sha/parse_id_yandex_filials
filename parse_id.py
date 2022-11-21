@@ -33,16 +33,16 @@ def parsing_data():
     except:
         return None
     # try:
-    #     tag = reviews.find('div', {"class": 'search-snippet-view__body _type_business'})
+        # tag = reviews.find('div', {"class": 'search-snippet-view__body _type_business'})
     # except:
     #     return None
-    while i < 100:
-        i = 0
-        print(reviews[i].find('div', {"class": 'search-snippet-view__body _type_business'}))
-        i = i+1
-        # print (tag['data-id'])
+
+    for i in range(len(reviews)):
+        tag = reviews[i].find('div', {"class": 'search-snippet-view__body _type_business'})
+        print (tag['data-id'])
 
 def main():
+    get_session()
     parsing_data()
 
 
