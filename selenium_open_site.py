@@ -30,12 +30,22 @@ def get_sourse_html(url):
             actions.click(zoom_out).perform()
             time.sleep(1)
             actions.click(zoom_out).perform()
+            time.sleep(1)
+            actions.click(zoom_out).perform()
         except Exception as ex:
             print (ex)
         time.sleep(5)
 
         while True:
             if driver.find_elements(By.CLASS_NAME, "add-business-view"):
+                find_more_element = driver.find_element(By.CLASS_NAME, "scroll__scrollbar-thumb")
+                actions2 = ActionChains(driver)
+                actions2.drag_and_drop_by_offset(find_more_element, 0, 100).perform()
+                time.sleep(3)
+                actions2.drag_and_drop_by_offset(find_more_element, 0, 100).perform()
+                time.sleep(3)
+                actions2.drag_and_drop_by_offset(find_more_element, 0, 100).perform()
+                time.sleep(3)
                 with open("test.html", "w", encoding = "utf-8") as file:
                     file.write(driver.page_source)
 
@@ -55,4 +65,4 @@ def get_sourse_html(url):
         driver.quit()
 
 
-get_sourse_html(url = 'https://yandex.ru/maps/?ll=52.583698%2C56.067155&z=5.86')
+# get_sourse_html(url = 'https://yandex.ru/maps/?ll=52.583698%2C56.067155&z=5.86')
